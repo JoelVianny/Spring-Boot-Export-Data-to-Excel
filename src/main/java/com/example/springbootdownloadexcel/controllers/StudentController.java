@@ -35,7 +35,7 @@ public class StudentController {
         ByteArrayInputStream inputStream = studentService.getDataDownloaded();
         InputStreamResource resource =  new InputStreamResource(inputStream);
         ResponseEntity<InputStreamResource> resourceResponseEntity = ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename" +fileName)
+                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename=" +fileName)
                 .contentType(MediaType.parseMediaType("application/vnd.ms-excel")).body(resource);
         return  resourceResponseEntity;
     }
